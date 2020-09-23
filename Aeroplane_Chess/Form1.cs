@@ -22,7 +22,7 @@ namespace Aeroplane_Chess
         bool is_click = false, is_complete = false;
         int player = 1;
         int num;
-        int start;
+        int start=-1;
         Random r = new Random();
         int[,] map =
         {
@@ -494,7 +494,7 @@ namespace Aeroplane_Chess
             switch (player)
             {
                 case 1:
-                    player = 1;
+                    player = 2;
                     label4.Text = "黄方回合";
                     label4.ForeColor = Color.Yellow;
                     is_click = false;
@@ -661,7 +661,7 @@ namespace Aeroplane_Chess
         private void timer1_Tick(object sender, EventArgs e)
         {
             label1.Text = r.Next(1, 7).ToString();
-            label1.Text = "6";
+            //label1.Text = "6";
             num = int.Parse(label1.Text);
         }
 
@@ -679,9 +679,10 @@ namespace Aeroplane_Chess
                         {
                             Plane_TakeOf(e.Y / 30, e.X / 30);
                         }
+                        else if (int.Parse(label1.Text) <= 4 && e.X < 90 && e.Y < 90 && e.X > 30 && e.Y > 30)
+                            ;
                         else
                             Plane_Go(e.Y / 30, e.X / 30);
-                        
                         Change_Player();
                         break;
                     case 2:
@@ -693,6 +694,8 @@ namespace Aeroplane_Chess
                         {
                             Plane_TakeOf(e.Y / 30, e.X / 30);
                         }
+                        else if (int.Parse(label1.Text) <= 4  && e.X < 420 && e.Y < 90 && e.X > 360 && e.Y > 30)
+                            ;
                         else
                             Plane_Go(e.Y / 30, e.X / 30);
                         Change_Player();
@@ -706,6 +709,8 @@ namespace Aeroplane_Chess
                         {
                             Plane_TakeOf(e.Y / 30, e.X / 30);
                         }
+                        else if (int.Parse(label1.Text) <= 4 && e.X < 90 && e.Y < 420 && e.X > 30 && e.Y > 360)
+                            ;
                         else
                             Plane_Go(e.Y / 30, e.X / 30);
                         Change_Player();
@@ -719,6 +724,8 @@ namespace Aeroplane_Chess
                         {
                             Plane_TakeOf(e.Y / 30, e.X / 30);
                         }
+                        else if (int.Parse(label1.Text) <= 4 && e.X < 420 && e.Y < 420 && e.X > 360 && e.Y > 360)
+                            ;
                         else
                             Plane_Go(e.Y / 30, e.X / 30);
                         Change_Player();
